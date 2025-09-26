@@ -30,24 +30,70 @@ body {
 header {
     background: linear-gradient(135deg, #134290 0%, #103c83 100%);
     color: rgb(143, 108, 108);
-    padding: 1rem 0;
     position: fixed;
+    padding: 8px;
     width: 100%;
     top: 0;
     z-index: 1000;
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
-    height: 70px;
+    height: 97px;
 }
 
 .header-scrolled {
     background: #134290;
     padding: 0.5rem 0;
+    opacity: 0.8;
+    
 }
 
 .header-scrolled .nav-links a {
     color: white;
 }
+
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      position: relative; /* importante para o dropdown */
+    }
+
+    nav ul li a {
+      display: block;
+      padding: 10px 15px;
+      color: white;
+      text-decoration: none;
+    }
+
+    nav ul li a:hover {
+      background: #ffffff;
+    }
+
+    /* Submenu (dropdown) */
+    nav ul li ul {
+      position: absolute;
+      top: 100%; /* logo abaixo do item pai */
+      left: 0;
+      background: #11397a;
+      display: none;
+      flex-direction: column;
+      min-width: 150px;
+    }
+
+    nav ul li ul li a {
+      padding: 10px;
+      color: white;
+      border-bottom: 1px solid #555;
+    }
+
+    nav ul li:hover ul {
+      display: flex; /* aparece ao passar o mouse */
+    }
 
 nav {
     display: flex;
@@ -61,11 +107,14 @@ nav {
     font-size: 2rem;
     font-weight: bold;
     color: white;
+    border-radius: 50%;
 }
 
 .logo img {
-    max-height: 30px;
-    width: auto;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover; 
 }
 
 .nav-links {
@@ -140,6 +189,7 @@ nav {
 }
 
 .hero p {
+    padding-top: 9px;
     font-size: 1.3rem;
     margin-bottom: 2rem;
     opacity: 0.9;
@@ -379,19 +429,28 @@ footer {
 <body>
 
     <!-- Header -->
-    <header id="header">
+   <header id="header">
         <nav class="container">
             <div class="logo">
                 <a href="index.html">
-                <img src="logo.png" alt="ProTech Logo"> 
+                <img src="logo.jpg" alt="ProTech Logo"> 
                 </a>
             </div>
             <ul class="nav-links" id="nav-links">
-                <li><a href="index.html">Início</a></li>
-                <li><a href="index.html#services">Serviços</a></li>
-                <li><a href="index.html#about">Sobre</a></li>
-                <li><a href="index.html#contact">Contato</a></li>
-                <li><a href="portfolio.html">Portfólio</a></li>
+                <li>
+                    <a href="index.html">Contato</a>
+
+                    <ul>
+                        <li><a href="https://wa.me/5551995291399">WhatsApp</a></li>
+                        <li><a href="mailto:tttalisson32@gmail.com">Email</a></li>
+                        <li><a href="https://instagram.com/talissonsc_" target="_blank">Instagram</a></li>
+                        <li><a href="https://www.linkedin.com/in/talisson-costa-509119247/" target="_blank">Linkedin</a></li>
+                    </ul>
+
+                </li>
+                <li>
+                    <a href="index.html">Portfólio</a>
+                </li>
             </ul>
             <div class="mobile-menu" id="mobile-menu">
                 <span></span>
@@ -404,7 +463,7 @@ footer {
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Nosso Portfólio</h1>
+            
             <p>Projetos utilizando a ferramente Power Bi, gerando insights valiosos</p>
         </div>
     </section>
@@ -477,24 +536,22 @@ footer {
     <footer>
         <div class="container footer-content">
             <div class="footer-section">
-                <h3>ProTech</h3>
-                <p>Soluções tecnológicas inteligentes.</p>
+                <h3>Portfolio</h3>
+                <p>Projetos de tecnologia.</p>
             </div>
             <div class="footer-section">
                 <h3>Links</h3>
-                <a href="index.html">Início</a>
-                <a href="index.html#services">Serviços</a>
-                <a href="index.html#about">Sobre</a>
-                <a href="index.html#contact">Contato</a>
+                <a href="index.html">Portfolio</a>
+            
             </div>
             <div class="footer-section">
                 <h3>Contato</h3>
-                <p>protech.devbr@gmail.com</p>
-                <p><a href="https://wa.me/555197086458" target="_blank">WhatsApp</a></p>
-                <a href="https://instagram.com/seu_usuario" target="_blank">Instagram</a>
+                 <p><a href="mailto:tttalisson32@gmail.com" target="_blank">tttalisson32@gmail.com</a></p>
+                <p><a href="https://wa.me/5551995291399" target="_blank">WhatsApp</a></p>
+                <a href="https://instagram.com/talissonsc_" target="_blank">Instagram</a>
             </div>
         </div>
-        <div class="footer-bottom">© 2025 ProTech. Todos os direitos reservados.</div>
+        <div class="footer-bottom">© 2025 Talisson da S. Costa. Todos os direitos reservados.</div>
     </footer>
 
     <script>
