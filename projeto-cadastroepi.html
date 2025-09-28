@@ -259,7 +259,7 @@ nav {
 .carousel-slide img {
     width: 100%;
     height: 500px;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
 }
 
@@ -319,12 +319,12 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 2rem;
+    padding: 3px;
 }
 
 .descricao-projeto h3 {
     margin: 2rem 0 1.5rem 0;
-    color: #134290;
+    color: #373738;
     font-size: 1.3rem;
     line-height: 1.5;
 }
@@ -423,6 +423,29 @@ footer {
     .next {
         right: 10px;
     }
+
+
+    .portfolio > ul {
+    padding-left: 2rem; /* ou quanto achar melhor */
+    margin-top: 0.5rem; /* ajusta o espaçamento em relação ao h3 */
+}
+
+.btn-git {
+    display: inline-block;
+    background-color: #134290;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.btn-git:hover {
+    background-color: #103c83;
+}
+
 }
     </style>
 </head>
@@ -464,38 +487,51 @@ footer {
     <section class="hero">
         <div class="hero-content">
             
-            <p>Projetos utilizando a ferramente Power Bi, gerando insights valiosos</p>
+            <p>Projeto <b>acadêmico</b>, desenvolvimento Desktop utilizando linguagem <b>JAVA</b></p>
         </div>
     </section>
 
     <!-- Portfolio Section -->
     <section class="portfolio">
         <div class="container">
-            <h1>Dashboard em Power BI para ESCOLA</h1>
+
             <div class="portfolio-grid">
                 
                 <div> 
                  <div class="descricao-projeto">
                     
+                       <h1>Sistema Desktop JAVA de Gerenciamento de EPIs</h1>
+            <h3>Tecnologias Utilizadas</h3>
+                    <ul>
+            <li><b>Java SE 8</b> - Backend</li>
+            <li><b>Swing</b> – Componentes visuais desktop</li>
+            <li><b>PostgreSQL 16</b> – Banco de dados relacional .</li>
+                </ul>
+
                     <!-- Carrossel de Imagens -->
                     <div class="image-carousel">
                         <div class="carousel-container">
                             <div class="carousel-slides" id="carouselSlides">
                                 <!-- Slide 1 -->
                                 <div class="carousel-slide">
-                                    <img src="projeto-powerbiescola-fotos/1.png" alt="Dashboard Principal">
+                                    <img src="Projeto EPis Java fotos/1.png" alt="Dashboard Principal">
                                 </div>
                                 <!-- Slide 2 -->
                                 <div class="carousel-slide">
-                                    <img src="projeto-powerbiescola-fotos/2.png" alt="Gráficos Analíticos">
+                                    <img src="Projeto EPis Java fotos/2.png" alt="Dashboard Principal">
                                 </div>
                                 <!-- Slide 3 -->
                                 <div class="carousel-slide">
-                                    <img src="projeto-powerbiescola-fotos/3.png" alt="Relatórios KPI">
+                                    <img src="Projeto EPis Java fotos/3.png" alt="Dashboard Principal">
+                                </div>
+                                <!-- Slide 4 -->
+                                 <div class="carousel-slide">
+                                    <img src="Projeto EPis Java fotos/4.png" alt="Dashboard Principal">
                                 </div>
                                
                                
                             </div>
+
                             
                             <!-- Botões de navegação -->
                             <button class="carousel-btn prev" onclick="previousSlide()">
@@ -515,15 +551,21 @@ footer {
                         </div>
                     </div>
 
-              <h3>Este projeto em <b>Power BI</b> foi desenvolvido para a escola, oferecendo <b>insights detalhados sobre o desempenho acadêmico de mais de 1500 alunos</b>, com foco em análise de notas, acompanhamento de incidentes e comparativos de turmas e alunos.</h3>
+
+                       <a href="https://github.com/Talisson32/cadastro_de_epis.git" target="_blank" class="btn-git">
+                            <i class="fab fa-github"></i> Ver no GitHub
+                        </a>
+              <h3>Desenvolvido em <b>Java 8</b> (Java SE) utilizando NetBeans, sistema desktop oferece uma interface para <b>login</b>, cadastro de novos usuários, <b>listagem</b> de todos os EPis cadastrados, tela para <b>cadastro</b> de epis e uma tela para <b>manutenção</b> o modelos dos EPis.
+
+A interface gráfica foi construída usando o GUI Builder do NetBeans (Drag & Drop).</h3>
 
 <ul>
-    <li><b>Menu de relatório geral</b> – Exibe uma visão completa das notas e desempenho de todos os alunos, facilitando o acompanhamento global da instituição.</li>
-    <li><b>Visualização de incidentes de notas baixas</b> – Destaca os alunos ou turmas com desempenho abaixo do esperado, permitindo ação rápida e direcionada.</li>
-    <li><b>Filtros visuais de cores</b> – Permite identificar rapidamente padrões de desempenho por cores, tornando a análise mais intuitiva e prática.</li>
-    <li><b>Comparativos de turmas</b> – Mostra a performance relativa entre diferentes turmas, auxiliando na identificação de tendências e necessidades pedagógicas.</li>
-    <li><b>Comparativos de alunos</b> – Permite analisar individualmente o desempenho dos alunos, facilitando acompanhamento personalizado.</li>
-    <li><b>Relatórios detalhados</b> – Oferece uma análise aprofundada dos dados, possibilitando geração de relatórios para gestores e professores.</li>
+    <li><b>Login</b> - Tela para realizar login e cadastro de novos usuários</li>
+    <li><b>Visualizar</b> – Lista todos os EPis cadastrados.</li>
+    <li><b>Tela EPI</b> – Tela de cadastro EPi com dropdown Categoria carregada do banco (CRUD).</li>
+    <li><b>Tela Categoria</b> – Tela para gerenciar categorias (CRUD).</li>
+  
+    
 </ul>
 
                  </div>

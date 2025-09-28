@@ -259,7 +259,7 @@ nav ul li:hover ul {
 }
 
 .portfolio-card.java {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(fundocode.jpg) center/cover no-repeat;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(java.png) center/cover no-repeat;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
@@ -289,7 +289,7 @@ nav ul li:hover ul {
 }
 
 .portfolio-card.java:hover {
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(fundocode.jpg) center/cover no-repeat;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(java.png) center/cover no-repeat;
 }
 
 .portfolio-card:hover {
@@ -524,6 +524,31 @@ footer {
         <div class="container">
             <h2 class="section-title">Projetos Realizados</h2>
             <div class="portfolio-grid">
+
+                   <!-- java -->
+                <div class="portfolio-card java" onclick="location.href='projeto-cadastroepi.html'">
+                    <div class="card-image">
+                        <i class="fab fa-java card-icon"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Cadastro de EPis (JAVA)</h3>
+                        <p>Sistema Desktop para gerencimento de EPis, banco de dado local PostgresSQL, seguindo padrão de funçoes CRUD.</p>
+                        <div class="card-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">Swing</span>
+                             <span class="tag">PostgreSQL</span>
+                        </div>
+                        <a href="projeto-cadastroepi.html" class="card-button">
+                            Ver Projeto <i class="fas fa-arrow-right"></i>
+                        </a>
+
+                         <a href="https://github.com/Talisson32/cadastro_de_epis.git" class="card-button">
+                            Github <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+
                 
                 <!-- Dashboard Power BI -->
                 <div class="portfolio-card" onclick="location.href='projeto-powerbi.html'">
@@ -562,23 +587,6 @@ footer {
                     </div>
                 </div>
 
-                <!-- java -->
-                <div class="portfolio-card java" onclick="location.href='#'">
-                    <div class="card-image">
-                        <i class="fas fa-chart-pie card-icon"></i>
-                    </div>
-                    <div class="card-content">
-                        <h3>Desenvolvimento</h3>
-                        <p>Dashboard completo para análise de vendas e performance, com indicadores estratégicos e visualizações interativas.</p>
-                        <div class="card-tags">
-                            <span class="tag">Java</span>
-                            <span class="tag">Spring Boot</span>
-                        </div>
-                        <a href="#" class="card-button">
-                            Ver Projeto <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
 
             </div>
         </div>
