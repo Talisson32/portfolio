@@ -80,7 +80,7 @@ nav ul {
 }
 
 nav ul li {
-  position: relative; /* importante para o dropdown */
+  position: relative;
 }
 
 nav ul li a {
@@ -97,7 +97,7 @@ nav ul li a:hover {
 /* Submenu (dropdown) */
 nav ul li ul {
   position: absolute;
-  top: 100%; /* logo abaixo do item pai */
+  top: 100%;
   left: 0;
   background: #11397a;
   display: none;
@@ -112,7 +112,7 @@ nav ul li ul li a {
 }
 
 nav ul li:hover ul {
-  display: flex; /* aparece ao passar o mouse */
+  display: flex;
 }
 
 .nav-links {
@@ -191,42 +191,9 @@ nav ul li:hover ul {
     border-left: 5px solid #134290;
 }
 
-/* Hero Section */
-.hero {
-    position: relative;
-    text-align: center;
-    color: white;
-    padding: 60 0 20px;
-    overflow: hidden;
-    background: linear-gradient(135deg, #134290 0%, #103c83 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
-
-.hero h1 {
-    font-size: 3.0rem;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-}
-
 /* Portfolio Section */
 .portfolio {
-    padding-top: 0px 0 60px 0;
-    background: #f8f9fa;
-}
-.apresentacao {
-    padding-top: 10px 0 60px 0;
+    padding: 60px 0;
     background: #f8f9fa;
 }
 
@@ -258,61 +225,134 @@ nav ul li:hover ul {
     color: #000000;
 }
 
-.portfolio-card.java {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(java.png) center/cover no-repeat;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    position: relative;
-}
-
+/* FUNDOS PADRÃO PARA OS CARDS */
 .portfolio-card {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(powerbilogo.png) center/cover no-repeat;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
     border-radius: 20px;
-    overflow: hidden;
+    overflow: visible;
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
     cursor: pointer;
     position: relative;
 }
 
-.portfolio-card.escola {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(escola.jpg) center/cover no-repeat;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    cursor: pointer;
+/* Card com imagens específicas */
+.portfolio-card.java {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(java.png) center/cover no-repeat;
+}
+
+.portfolio-card.powerbi-escola {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(escola.jpg) center/cover no-repeat;
+}
+
+/* Card Destaque - Previsão do Tempo */
+.portfolio-card.destaque {
     position: relative;
+    border: 4px solid #ffd700;
+    box-shadow: 0 20px 60px rgba(255, 215, 0, 0.4);
+    animation: subtlePulse 3s infinite;
+    transform: scale(1.05);
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(previsaodotempo.png) center/cover no-repeat;
 }
 
-.portfolio-card.java:hover {
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(java.png) center/cover no-repeat;
+@keyframes subtlePulse {
+    0%, 100% {
+        box-shadow: 0 20px 60px rgba(255, 215, 0, 0.4);
+    }
+    50% {
+        box-shadow: 0 20px 70px rgba(255, 215, 0, 0.5);
+    }
 }
 
-.portfolio-card:hover {
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(powerbilogo.png) center/cover no-repeat;
+/* Badge de destaque corrigido - não cortado */
+.badge-destaque {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    color: #134290;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: bounce 2s infinite;
 }
 
-.portfolio-card.escola:hover {
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(escola.jpg) center/cover no-repeat;
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
 }
 
+.badge-destaque i {
+    animation: rotate 3s linear infinite;
+    font-size: 1.2rem;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* EFEITOS HOVER */
 .portfolio-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 25px 45px rgba(0,0,0,0.15);
 }
 
+/* Cards com imagem - efeito hover escurecendo */
+.portfolio-card.java:hover {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(java.png) center/cover no-repeat;
+}
+
+.portfolio-card.powerbi-escola:hover {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(escola.jpg) center/cover no-repeat;
+}
+
+/* Card de destaque - previsão do tempo */
+.portfolio-card.destaque:hover {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(previsaodotempo.png) center/cover no-repeat;
+    box-shadow: 0 30px 70px rgba(255, 215, 0, 0.5);
+    transform: scale(1.08) translateY(-15px);
+}
+
+/* Cards sem imagem - fundo azul padrão e hover escurecendo */
+.portfolio-card.powerbi {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+}
+
+.portfolio-card.powerbi:hover {
+    background: linear-gradient(135deg, #152d6b 0%, #1e3a8a 100%);
+}
+
+/* Garantir que cards sem classe específica tenham fundo azul */
+.portfolio-card:not(.java):not(.powerbi-escola):not(.destaque):not(.powerbi):hover {
+    background: linear-gradient(135deg, #152d6b 0%, #1e3a8a 100%);
+}
+
 .card-image {
     height: 200px;
-    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.8), rgba(59, 130, 246, 0.8));
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
+}
+
+/* Para cards com imagem, o card-image deve ser transparente */
+.portfolio-card.java .card-image,
+.portfolio-card.powerbi-escola .card-image,
+.portfolio-card.destaque .card-image {
+    background: transparent;
 }
 
 .card-image::before {
@@ -376,6 +416,8 @@ nav ul li:hover ul {
     font-weight: 600;
     transition: all 0.3s ease;
     gap: 0.5rem;
+    margin-right: 10px;
+    margin-top: 10px;
 }
 
 .card-button:hover {
@@ -441,14 +483,6 @@ footer {
         display: flex;
     }
 
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
     .portfolio-grid {
         grid-template-columns: 1fr;
     }
@@ -457,7 +491,7 @@ footer {
         padding: 100px 0 30px 0;
     }
     
-    .apresentacao h3 {
+    .apresentacao h4 {
         font-size: 1rem;
         padding: 1.5rem;
         text-align: center;
@@ -469,6 +503,17 @@ footer {
     
     .portfolio {
         padding: 30px 0 60px 0;
+    }
+
+    .badge-destaque {
+        top: 10px;
+        right: 10px;
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .portfolio-card.destaque {
+        transform: scale(1.02);
     }
 }
     </style>
@@ -525,39 +570,116 @@ footer {
             <h2 class="section-title">Projetos Realizados</h2>
             <div class="portfolio-grid">
 
-                   <!-- java -->
+                <!-- JAVA - Cadastro de EPIs -->
                 <div class="portfolio-card java" onclick="location.href='projeto-cadastroepi.html'">
                     <div class="card-image">
                         <i class="fab fa-java card-icon"></i>
                     </div>
                     <div class="card-content">
-                        <h3>Cadastro de EPis (JAVA)</h3>
-                        <p>Sistema Desktop para gerencimento de EPis, banco de dado local PostgresSQL, seguindo padrão de funçoes CRUD.</p>
+                        <h3>Cadastro de EPIs (JAVA)</h3>
+                        <p>Sistema Desktop para gerenciamento de EPIs, banco de dados local PostgreSQL, seguindo padrão de funções CRUD.</p>
                         <div class="card-tags">
                             <span class="tag">Java</span>
                             <span class="tag">Swing</span>
-                             <span class="tag">PostgreSQL</span>
+                            <span class="tag">PostgreSQL</span>
                         </div>
                         <a href="projeto-cadastroepi.html" class="card-button">
                             Ver Projeto <i class="fas fa-arrow-right"></i>
                         </a>
-
-                         <a href="https://github.com/Talisson32/cadastro_de_epis.git" class="card-button">
-                            Github <i class="fab fa-github"></i>
+                        <a href="https://github.com/Talisson32/cadastro_de_epis.git" target="_blank" class="card-button">
+                            GitHub <i class="fab fa-github"></i>
                         </a>
                     </div>
                 </div>
 
+                <!-- DESTAQUE - Previsão do Tempo -->
+                <div class="portfolio-card javascript destaque" onclick="location.href='projeto-previsao.html'">
+                    <div class="badge-destaque">
+                        <i class="fas fa-star"></i> Destaque
+                    </div>
+                    <div class="card-image">
+                        <i class="fas fa-cloud-sun card-icon"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Previsão do Tempo com APIs</h3>
+                        <p>Sistema avançado de previsão do tempo integrando API IBGE para cidades brasileiras e OpenWeatherMap para dados climáticos em tempo real.</p>
+                        <div class="card-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">API REST</span>
+                            <span class="tag">Async/Await</span>
+                            <span class="tag">JSON</span>
+                        </div>
+                        <a href="projeto-previsao.html" class="card-button">
+                            Ver Projeto <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
 
-                
+                <!-- JavaScript - Analisador de Números -->
+                <div class="portfolio-card" onclick="location.href='projeto-analisador-numeros.html'">
+                    <div class="card-image">
+                        <i class="fas fa-calculator card-icon"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Analisador de Números</h3>
+                        <p>Aplicação web para análise estatística de números com validação, cálculos de média, soma e identificação de valores mínimos e máximos.</p>
+                        <div class="card-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                        </div>
+                        <a href="projeto-analisador-numeros.html" class="card-button">
+                            Ver Projeto <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- JavaScript - Gerador de Tabuada -->
+                <div class="portfolio-card" onclick="location.href='projeto-tabuada.html'">
+                    <div class="card-image">
+                        <i class="fas fa-table card-icon"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Gerador de Tabuada</h3>
+                        <p>Aplicação educacional que gera tabuadas completas instantaneamente, demonstrando loops e manipulação de DOM.</p>
+                        <div class="card-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">DOM</span>
+                            <span class="tag">Loops</span>
+                        </div>
+                        <a href="projeto-tabuada.html" class="card-button">
+                            Ver Projeto <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- JavaScript - Gerador de Saltos -->
+                <div class="portfolio-card" onclick="location.href='projeto-contagem-de-numeros.html'">
+                    <div class="card-image">
+                        <i class="fas fa-sort-numeric-up card-icon"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Gerador de Saltos de Números</h3>
+                        <p>Sistema que cria sequências numéricas personalizadas com intervalos definidos pelo usuário usando estruturas de repetição.</p>
+                        <div class="card-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">For Loop</span>
+                            <span class="tag">Validação</span>
+                        </div>
+                        <a href="projeto-contagem-de-numeros.html" class="card-button">
+                            Ver Projeto <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
                 <!-- Dashboard Power BI -->
-                <div class="portfolio-card" onclick="location.href='projeto-powerbi.html'">
+                <div class="portfolio-card powerbi" onclick="location.href='projeto-powerbi.html'">
                     <div class="card-image">
                         <i class="fas fa-chart-pie card-icon"></i>
                     </div>
                     <div class="card-content">
                         <h3>Dashboard Power BI Empresa de Tecnologia</h3>
-                        <p>Projeto para metrificar e organizar os chamados do setor de tecnologia, oferecendo visão clara do desempenho da equipe. <b>Inclui acompanhamento diário, relatórios detalhados, KPIs, hora-homem e filtros por empresa e agente. </b> </p>
+                        <p>Projeto para metrificar e organizar os chamados do setor de tecnologia, oferecendo visão clara do desempenho da equipe.</p>
                         <div class="card-tags">
                             <span class="tag">Power BI</span>
                             <span class="tag">Sheetlabs API</span>
@@ -570,23 +692,22 @@ footer {
                 </div>
 
                 <!-- Dashboard Power BI 2 -->
-                <div class="portfolio-card escola" onclick="location.href='projeto-powerbiescola.html'">
+                <div class="portfolio-card powerbi-escola" onclick="location.href='projeto-powerbiescola.html'">
                     <div class="card-image">
                         <i class="fas fa-chart-pie card-icon"></i>
                     </div>
                     <div class="card-content">
                         <h3>Dashboard Power BI Escolar</h3>
-                        <p>Este projeto em <b>Power BI</b> foi desenvolvido para uma escola, oferecendo <b>insights detalhados sobre o desempenho acadêmico de mais de 1500 alunos</b>, com foco em análise de notas, acompanhamento de incidentes e comparativos de turmas e alunos. </p>
+                        <p>Projeto desenvolvido para uma escola, oferecendo insights detalhados sobre o desempenho acadêmico de mais de 1500 alunos.</p>
                         <div class="card-tags">
                             <span class="tag">Power BI</span>
-                            <span class="tag">Sheets Google </span>
+                            <span class="tag">Sheets Google</span>
                         </div>
                         <a href="projeto-powerbiescola.html" class="card-button">
                             Ver Projeto <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
-
 
             </div>
         </div>
@@ -605,7 +726,7 @@ footer {
             </div>
             <div class="footer-section">
                 <h3>Contato</h3>
-                 <p><a href="mailto:tttalisson32@gmail.com" target="_blank">tttalisson32@gmail.com</a></p>
+                <p><a href="mailto:tttalisson32@gmail.com" target="_blank">tttalisson32@gmail.com</a></p>
                 <p><a href="https://wa.me/5551995291399" target="_blank">WhatsApp</a></p>
                 <a href="https://instagram.com/talissonsc_" target="_blank">Instagram</a>
             </div>

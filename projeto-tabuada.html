@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Tabuada - ProTech</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+      /* Reset e Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #134290 0%, #103c83 100%);
+    color: rgb(143, 108, 108);
+    position: fixed;
+    padding: 8px;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    height: 97px;
+}
+
+.header-scrolled {
+    background: #134290;
+    padding: 0.5rem 0;
+    opacity: 0.8;
+}
+
+.header-scrolled .nav-links a {
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    display: block;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background: #ffffff;
+}
+
+/* Submenu (dropdown) */
+nav ul li ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #11397a;
+    display: none;
+    flex-direction: column;
+    min-width: 150px;
+}
+
+nav ul li ul li a {
+    padding: 10px;
+    color: white;
+    border-bottom: 1px solid #555;
+}
+
+nav ul li:hover ul {
+    display: flex;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    border-radius: 50%;
+}
+
+.logo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover; 
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: #11397a;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: #f0f8ff;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.mobile-menu span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    text-align: center;
+    color: white;
+    padding: 80px 0 20px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #134290 0%, #103c83 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    padding-top: 9px;
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* Portfolio Section */
+.portfolio {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    color: #333;
+    position: relative;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(45deg, #1e3a8a, #1e40af);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    margin-top: 1rem;
+}
+
+.descricao-projeto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3px;
+}
+
+.descricao-projeto h3 {
+    margin: 2rem 0 1.5rem 0;
+    color: #373738;
+    font-size: 1.3rem;
+    line-height: 1.5;
+}
+
+.descricao-projeto ul {
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.descricao-projeto li {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.btn-git {
+    display: inline-block;
+    background-color: #000000;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.btn-git:hover {
+    background-color: #103c83;
+}
+
+/* Sistema Funcionando */
+.demo-system {
+    background: linear-gradient(135deg, #0d1b2a, #1b263b);
+    border-radius: 15px;
+    padding: 40px;
+    margin: 2rem auto;
+    max-width: 900px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+#caixa {
+    background-color: #f7faff;
+    color: #000;
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 18px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    border: 2px solid #c7ddff;
+}
+
+#caixa h2 {
+    color: #1e3a5f;
+    margin-bottom: 15px;
+}
+
+.lado-esquerdo, .lado-direito {
+    width: 50%;
+    text-align: left;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #1e3a5f;
+    font-size: 16px;
+    background: #eef3ff;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: #4b77c0;
+}
+
+input[type="button"] {
+    background: #1e3a5f;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+input[type="button"]:hover {
+    background: #274e7a;
+}
+
+.resultado-box {
+    background: #eef3ff;
+    border-radius: 12px;
+    border: 2px solid #c7ddff;
+    padding: 15px;
+    height: 250px;
+    overflow-y: auto;
+    font-size: 16px;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.15);
+}
+
+/* Footer */
+footer {
+    background: #134290;
+    color: white;
+    padding: 3rem 0 1rem;
+    text-align: center;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+}
+
+.footer-section p,
+.footer-section a {
+    color: #ccc;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: #134290;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .mobile-menu {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    #caixa {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .lado-esquerdo, .lado-direito {
+        width: 100%;
+    }
+
+    .portfolio > ul {
+        padding-left: 2rem;
+        margin-top: 0.5rem;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <nav class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.jpg" alt="ProTech Logo"> 
+                </a>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li>
+                    <a href="index.html">Contato</a>
+                    <ul>
+                        <li><a href="https://wa.me/5551995291399">WhatsApp</a></li>
+                        <li><a href="mailto:tttalisson32@gmail.com">Email</a></li>
+                        <li><a href="https://instagram.com/talissonsc_" target="_blank">Instagram</a></li>
+                        <li><a href="https://www.linkedin.com/in/talisson-costa-509119247/" target="_blank">Linkedin</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="index.html">Portfólio</a>
+                </li>
+            </ul>
+            <div class="mobile-menu" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p>Projeto <b>de estudo</b>, aplicação web utilizando <b>HTML, CSS e JavaScript</b></p>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio">
+        <div class="container">
+            <div class="portfolio-grid">
+                <div> 
+                    <div class="descricao-projeto">
+                        <h1>Gerador de Tabuada</h1>
+                        <h3>Tecnologias Utilizadas</h3>
+                        <ul>
+                            <li><b>HTML5</b> - Estrutura da página</li>
+                            <li><b>CSS3</b> – Estilização com gradientes e design responsivo</li>
+                            <li><b>JavaScript ES6</b> – Manipulação de DOM, loops e operações matemáticas</li>
+                        </ul>
+
+                        <!-- Sistema Funcionando -->
+                        <div class="demo-system">
+                            <div id="caixa">
+                                <div class="lado-esquerdo">
+                                    <h2>Gerar Tabuada</h2>
+                                    <label for="valor">Número para gerar:</label><br>
+                                    <input type="number" id="valor" style="width: 100%; margin-top: 8px;"><br><br>
+                                    <input type="button" value="Calcular" onclick="gerar()">
+                                </div>
+
+                                <div class="lado-direito">
+                                    <h2>Resultado</h2>
+                                    <div id="resultado" class="resultado-box"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                       
+
+                        <h3>Desenvolvido com <b>HTML, CSS e JavaScript puro</b>, este gerador de tabuada permite que o usuário digite qualquer número e visualize instantaneamente sua tabuada completa de multiplicação de 0 a 10.
+
+A aplicação demonstra o uso de <b>for loops</b> para iteração, <b>operações matemáticas</b> com JavaScript e <b>manipulação dinâmica do DOM</b> para exibição dos resultados em tempo real.</h3>
+
+                        <ul>
+                            <li><b>Estruturas de Repetição</b> - For loop de 0 a 10 para gerar a tabuada completa</li>
+                            <li><b>Manipulação de DOM</b> - getElementById() e innerHTML para exibição dinâmica</li>
+                            <li><b>Operações Matemáticas</b> - Cálculo de multiplicação em JavaScript</li>
+                            <li><b>Template Literals</b> - Uso de template strings para formatação do resultado</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>Portfolio</h3>
+                <p>Projetos de tecnologia.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Links</h3>
+                <a href="index.html">Portfolio</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p><a href="mailto:tttalisson32@gmail.com" target="_blank">tttalisson32@gmail.com</a></p>
+                <p><a href="https://wa.me/5551995291399" target="_blank">WhatsApp</a></p>
+                <a href="https://instagram.com/talissonsc_" target="_blank">Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2025 Talisson da S. Costa. Todos os direitos reservados.</div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if(window.scrollY > 50) header.classList.add('header-scrolled');
+            else header.classList.remove('header-scrolled');
+        });
+
+        // Sistema Gerador de Tabuada
+        function gerar() {
+            var numero = Number(document.getElementById("valor").value);
+            var result = document.getElementById("resultado");
+            result.innerHTML = "";
+
+            for(c = 0; c <= 10; c++) {
+                multiplicacao = c * numero;
+                result.innerHTML += `${c} x ${numero} = ${multiplicacao} <p></p>`;
+            }
+        }
+    </script>
+</body>
+</html>
