@@ -1,2 +1,2 @@
-Dominio na Hostinger
+Dominio na Hostinger,
 Hospedagem na Netlifly
